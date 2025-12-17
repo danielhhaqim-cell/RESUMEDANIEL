@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gallery - Daniel</title>
+  <link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- MARQUEE -->
+<div class="top-marquee">
+  <marquee scrollamount="7">Photo Gallery — School Memories • UiTM Journey • Internship Experience</marquee>
+</div>
+
+<div class="wrapper">
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="site-title">MUHAMMAD DANIEL HAQIM</div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="song.html">Song</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+   <!-- PARTICLE BERGERAK -->
+  <div id="particles-js"></div>
+
+  <div class="datetime-bar">
+  <span id="currentDate"></span> • <span id="currentTime"></span>
+</div>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery-section">
+
+    <h2 class="gal-title">Gallery</h2>
+    <p class="gal-sub">A visual journey through my school life, university experiences, and internship.</p>
+
+    <!-- FILTER BUTTONS -->
+    <div class="gallery-filter">
+      <button data-filter="all" class="filter-btn active">All</button>
+      <button data-filter="sk" class="filter-btn">SK</button>
+      <button data-filter="smk" class="filter-btn">SMK</button>
+      <button data-filter="uitm" class="filter-btn">UiTM</button>
+      <button data-filter="intern" class="filter-btn">Internship</button>
+    </div>
+
+    <!-- IMAGE GRID -->
+    <div class="gallery-grid">
+
+      <!-- SK -->
+      <div class="gallery-item sk"><img src="sk241.jpg"></div>
+      <div class="gallery-item sk"><img src="sk242.jpeg"></div>
+
+      <!-- SMK -->
+      <div class="gallery-item smk"><img src="smk1.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk2.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk3.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk4.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk5.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk6.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk7.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk8.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk9.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk10.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk11.jpeg"></div>
+      <div class="gallery-item smk"><img src="smk13.jpeg"></div>
+
+      <!-- UITM -->
+      <div class="gallery-item uitm"><img src="uitm1.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm2.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm3.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm4.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm5.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm6.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm7.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm8.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm9.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm10.jpeg"></div>
+      <div class="gallery-item uitm"><img src="uitm11.JPG"></div>
+      <div class="gallery-item uitm"><img src="uitm12.jpeg"></div>
+      <div class="gallery-item uitm"><img src="alai.JPG"></div>
+
+      <!-- INTERNSHIP -->
+      <div class="gallery-item intern"><img src="intern1.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern2.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern3.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern4.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern5.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern6.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern7.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern8.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern9.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern10.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern11.jpeg"></div>
+      <div class="gallery-item intern"><img src="intern12.jpeg"></div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-img">
+  <div class="lightbox-controls">
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
+  </div>
+</div>
+
+<!-- JAVASCRIPT INSIDE HTML -->
+<script>
+// FILTER
+const filterBtns = document.querySelectorAll('.filter-btn');
+const items = document.querySelectorAll('.gallery-item');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    document.querySelector('.filter-btn.active')?.classList.remove('active');
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    items.forEach(item => {
+      item.style.display =
+        filter === "all" || item.classList.contains(filter)
+        ? "block"
+        : "none";
+    });
+  });
+});
+
+// FILTER FROM URL (e.g. gallery.html#uitm)
+window.onload = () => {
+  const hash = window.location.hash.replace("#", "");
+
+  // Jika hash wujud & bukan "all", barulah apply filter
+  if (hash && hash !== "all") {
+    document.querySelector(`[data-filter="${hash}"]`)?.click();
+  } else {
+    // Default buka ALL
+    document.querySelector('[data-filter="all"]').click();
+  }
+};
+
+
+// LIGHTBOX
+const lightbox = document.getElementById("lightbox");
+const lightImg = document.querySelector(".lightbox-img");
+const closeBtn = document.querySelector(".lightbox-close");
+
+let currentIndex = 0;
+let galleryImages = [];
+
+document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+  galleryImages.push(img);
+  img.addEventListener('click', () => {
+    currentIndex = index;
+    openLightbox();
+  });
+});
+
+let slideInterval;
+
+function autoSlide() {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  openLightbox();
+}
+
+function openLightbox() {
+  lightbox.style.display = "flex";
+  lightImg.src = galleryImages[currentIndex].src;
+
+  clearInterval(slideInterval);  
+  slideInterval = setInterval(autoSlide, 3000); // Auto next 3s
+}
+
+closeBtn.onclick = () => {
+  lightbox.style.display = "none";
+  clearInterval(slideInterval);
+};
+
+// NEXT + PREV BUTTONS
+document.querySelector(".next").onclick = () => {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  openLightbox();
+};
+
+document.querySelector(".prev").onclick = () => {
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  openLightbox();
+};
+
+function autoSlide() {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  openLightbox();
+}
+</script>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  © Muhammad Daniel Haqim — All Rights Reserved
+</footer>
+
+  <!-- JS MASA -->
+  <script>
+function updateDateTime() {
+  const now = new Date();
+
+  const dateOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+
+  const timeOptions = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  };
+
+  document.getElementById("currentDate").textContent =
+    now.toLocaleDateString('en-US', dateOptions);
+
+  document.getElementById("currentTime").textContent =
+    now.toLocaleTimeString('en-US', timeOptions);
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+<!-- particle -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#5fd0ff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.4 },
+    size: { value: 3 },
+    move: {
+      enable: true,
+      speed: 1.2
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
