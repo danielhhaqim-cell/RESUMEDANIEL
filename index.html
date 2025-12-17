@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daniel | Portfolio</title>
+  <link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- PARTICLE BERGERAK -->
+  <div id="particles-js"></div>
+
+<div class="floating-datetime">
+  <span id="datetime"></span>
+</div>
+
+<!-- TOP MARQUEE -->
+<div class="top-marquee">
+  <marquee behavior="scroll" direction="left" scrollamount="7">
+    Welcome to Daniel's Portfolio — Information Management Student | UiTM | Lifelong Learner
+  </marquee>
+</div>
+
+<div class="wrapper">
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="site-title">MUHAMMAD DANIEL HAQIM</div>
+
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="song.html">Song</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+<div class="datetime-bar">
+  <span id="currentDate"></span> • <span id="currentTime"></span>
+</div>
+
+  <!-- HERO SECTION (INSIDE WRAPPER) -->
+  <main class="main-hero">
+
+    <div class="profile">
+      <img src="nielnaga.jpeg" alt="Profile Photo">
+    </div>
+
+    <div class="hero-text">
+      <h1>Hello, I'm <span class="name">Daniel</span></h1>
+      <p class="lead">Information Management (IM110) Student • Digital Creativity Enthusiast</p>
+
+      <p>
+        Welcome to my personal portfolio. I’m an aspiring information professional who enjoys exploring 
+        technology, building creative ideas, and improving myself through continuous learning.
+      </p>
+
+      <div class="cta-box">
+  <a href="contact.html" class="cta-btn">
+    <i class="fa-solid fa-paper-plane"></i>
+    Get in Touch
+  </a>
+</div>
+
+  </main>
+
+<!-- ABOUT ME SECTION -->
+<section class="about-section">
+
+    <!-- WHO AM I -->
+    <div class="whoami">
+        <div class="who-img">
+            <img src="selfie1.jpeg" alt="Daniel Profile Photo">
+        </div>
+
+        <div class="who-text">
+            <h2>Who Am I?</h2>
+            <p>
+                My name is <strong>Muhammad Daniel Haqim</strong>, a Diploma in Information Management student at UiTM Segamat.
+                I have a strong interest in technology, creativity, and continuous self-development.
+            </p>
+            <p>
+                I enjoy learning new digital tools, exploring information systems, 
+                designing visually appealing content, and discovering ways to improve myself every day.
+            </p>
+            <a href="resumedaniel.pdf" download class="btn resume-btn">
+    <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+</a>
+        </div>
+    </div>
+
+    <!-- MY JOURNEY -->
+<div class="journey">
+  <h2>My Journey</h2>
+
+  <ul class="journey-list">
+
+    <li>
+      👶 Born in <span class="highlight">Teluk Intan, Perak</span> <span class="year">(2005)</span>
+    </li>
+
+    <li>
+      🎒 Started my primary education at 
+      <span class="highlight">SK Seksyen 24(2)</span>
+      <span class="year">(2012 – 2017)</span>
+    </li>
+
+    <li>
+      🏫 Continued secondary education at 
+      <span class="highlight">SMK Putrajaya Presint 16(1)</span>
+      <span class="year">(2018 – 2022)</span>
+    </li>
+
+    <li>
+      🎓 Currently pursuing a 
+      <span class="highlight">Diploma in Information Management</span>
+      at <span class="highlight">UiTM Segamat</span>
+      <span class="year">(2023 – Present)</span>
+    </li>
+
+    <li>
+      💼 Completed internship at 
+      <span class="highlight">Hospital Cyberjaya (IT Department)</span>
+      <span class="year">(2025)</span>
+    </li>
+
+  </ul>
+</div>
+
+    <!-- VIDEO SECTION -->
+    <div class="fav-video">
+        <h2>My Favourite Video</h2>
+
+        <video controls class="video-box">
+            <source src="videosegamat1.mp4" type="video/mp4">
+            Your browser does not support video.
+        </video>
+    </div>
+
+</section>
+
+<!-- JAVASCRIPT SLIDESHOW -->
+<script>
+function updateDateTime() {
+  const now = new Date();
+
+  const dateOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+
+  const timeOptions = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  };
+
+  document.getElementById("currentDate").textContent =
+    now.toLocaleDateString('en-US', dateOptions);
+
+  document.getElementById("currentTime").textContent =
+    now.toLocaleTimeString('en-US', timeOptions);
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+</div> <!-- END WRAPPER -->
+
+<!-- FLOATING SOCIAL ICONS -->
+<div class="floating-social">
+
+  <a href="https://instagram.com" target="_blank" 
+     data-tooltip="Instagram" data-tooltip-icon="fa-brands fa-instagram">
+     <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="mailto:danielhhaqim@gmail.com"
+     data-tooltip="Email" data-tooltip-icon="fa-solid fa-envelope">
+     <i class="fa-solid fa-envelope"></i>
+  </a>
+
+  <a href="https://wa.me/60175412053" target="_blank"
+     data-tooltip="WhatsApp" data-tooltip-icon="fa-brands fa-whatsapp">
+     <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="https://linkedin.com" target="_blank"
+     data-tooltip="LinkedIn" data-tooltip-icon="fa-brands fa-linkedin">
+     <i class="fa-brands fa-linkedin"></i>
+  </a>
+
+  <a href="https://facebook.com" target="_blank"
+     data-tooltip="Facebook" data-tooltip-icon="fa-brands fa-facebook">
+     <i class="fa-brands fa-facebook"></i>
+  </a>
+
+  <a href="https://tiktok.com" target="_blank"
+     data-tooltip="TikTok" data-tooltip-icon="fa-brands fa-tiktok">
+     <i class="fa-brands fa-tiktok"></i>
+  </a>
+
+</div>
+
+<!-- TOOLTIP SCRIPT -->
+<script>
+document.querySelectorAll('.floating-social a').forEach(a => {
+  const name = a.getAttribute('data-tooltip');
+  const icon = a.getAttribute('data-tooltip-icon');
+
+  const box = document.createElement('div');
+  box.className = "tooltip-box";
+
+  box.innerHTML = `<i class="${icon}"></i> ${name}`;
+  a.appendChild(box);
+});
+</script>
+
+<!-- DATETIME SCRIPT -->
+<script>
+function updateDateTime() {
+  const now = new Date();
+
+  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const months = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+  ];
+
+  const dayName = days[now.getDay()];
+  const day = now.getDate();
+  const monthName = months[now.getMonth()];
+  const year = now.getFullYear();
+
+  const time = now.toLocaleTimeString("ms-MY");
+
+  document.getElementById("datetimeBar").innerHTML =
+    `${dayName}, ${day} ${monthName} ${year} — ${time}`;
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  © Muhammad Daniel Haqim — All Rights Reserved
+</footer>
+
+<!-- particle -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#5fd0ff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.4 },
+    size: { value: 3 },
+    move: {
+      enable: true,
+      speed: 1.2
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
